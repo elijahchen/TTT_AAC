@@ -6,7 +6,9 @@ package f_17;
 
 public class C_of_17 {
 	
-	private static void nPrimeNumbers(int bounds){
+	public static int[] nPrimeNumbers(int bounds){
+		int[] result = new int[bounds];
+		int resultIndex = 1;
 		
 		int n = 20;
 		int thisNum = 3;
@@ -15,6 +17,7 @@ public class C_of_17 {
 
 		if (counter == 2) {
 			System.out.println("Prime Number List: \n2");
+			result[0] = 2;
 		}
 		for (counter = 2; counter <= n;) {
 			for (int j = 2; j < bounds; j++) {
@@ -25,18 +28,20 @@ public class C_of_17 {
 				}
 				if (yes == true) {
 					System.out.println(thisNum);
+					result[resultIndex] += thisNum;
+					resultIndex++;
 					counter++;
 				}
 				yes = false;
 				thisNum++;
 			}
 		}
-		
+		return result;
 	}
 
 	public static void main(String[] args) {
 		
-		nPrimeNumbers(5);
+		nPrimeNumbers(20);
 
 	}
 
